@@ -1,0 +1,16 @@
+Flask
+Werkzeug
+python-dotenv
+pydantic
+langgraph
+langchain
+openai
+pypdf
+cohere
+langchain_chroma
+chromadb
+langchain-community
+langchain_openai
+deepagents
+fpdf
+google-search-results

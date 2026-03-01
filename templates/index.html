@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI CV Pro</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h2>AI CV Pro</h2>
+        <button onclick="scrollToSection('cv')">Analyze CV</button>
+        <button onclick="scrollToSection('job')">Job Match</button>
+        <button onclick="scrollToSection('cover')">Cover Letter</button>
+        <button onclick="scrollToSection('rag')">RAG Chat</button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <section class="card" id="cv">
+            <h2>📄 Upload & Analyze CV</h2>
+            <input type="file" id="cvFile" accept=".pdf">
+            <button onclick="extractCV()">Analyze CV</button>
+            <div class="result-box" id="cvResult"></div>
+        </section>
+
+        <section class="card" id="job">
+            <h2>🎯 Job Match Analysis</h2>
+            <textarea id="jobDescription" placeholder="Paste job description here..."></textarea>
+            <button onclick="matchJob()">Match Analysis</button>
+            <div class="result-box" id="matchResult"></div>
+        </section>
+
+        <section class="card" id="cover">
+            <h2>✉️ Cover Letter Generator</h2>
+            <button onclick="generateCoverLetter()">Generate Cover Letter</button>
+            <button class="download-btn" onclick="downloadCoverLetter()">Download PDF</button>
+            <div class="result-box" id="coverLetterResult"></div>
+        </section>
+
+        <section class="card" id="rag">
+            <h2>📚 Ask Your Document (RAG)</h2>
+            <input type="file" id="ragFile" accept=".pdf,.docx,.txt">
+            <textarea id="ragMessage" placeholder="Ask a question about your document..."></textarea>
+            <button onclick="sendRagMessage()">Ask</button>
+            <div class="result-box rag-style" id="chatBox"></div>
+        </section>
+
+    </main>
+</div>
+
+<script>
+function scrollToSection(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth'});
+}
+</script>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
